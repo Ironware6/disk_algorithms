@@ -68,32 +68,32 @@ return ArrayTwo;
 	               if (leftDifference<rightDifference) { 
 	                   totalNumScaned++;
 	                   total_num_moves+=Math.abs(holder_arr[index]-holder_arr[index-1]);
-	                   holder_arr=removeTheElement(holder_arr, index);
+	                   holder_arr=takeOutNode(holder_arr, index);
 	                   index--;
 	               }
 	               else { 
 	                   totalNumScaned++;
 	                   total_num_moves+=Math.abs(holder_arr[index]-holder_arr[index+1]);
-	                   holder_arr=removeTheElement(holder_arr ,index);
+	                   holder_arr=takeOutNode(holder_arr ,index);
 	               }
 	           }
 	           else if(index>0 && index<=capacity-totalNumScaned-1){
 	               totalNumScaned++;
 	               total_num_moves+=Math.abs(holder_arr[index]-holder_arr[index-1]);
-	               holder_arr=removeTheElement(holder_arr ,index);
+	               holder_arr=takeOutNode(holder_arr ,index);
 	               index--;
 	           }
 	           else if(index>=0 && index<capacity-totalNumScaned-1){
 	               totalNumScaned++;
 	               total_num_moves+=Math.abs(holder_arr[index]-holder_arr[index+1]);
-	               holder_arr=removeTheElement(holder_arr ,index);
+	               holder_arr=takeOutNode(holder_arr ,index);
 	           }
 	           if (totalNumScaned==capacity-1) {
-	               removeTheElement(holder_arr, index);
+	               takeOutNode(holder_arr, index);
 	               totalNumScaned++;
 	           }
 	       }
-	       return totalmoves;
+	       return total_num_moves;
 
 	   }
    
