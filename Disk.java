@@ -1,8 +1,10 @@
+
+// OS Project By Rafael Perez, Edison Blum, Christopher Estevez, Ramish Saqib, Brian Jamal Jones
 package homework;
 import java.util.Random;
 import java.util.Arrays;
 import java.util.Scanner;
-class Disk{
+class Disk{ //skeleton by Rafael Perez
 
    public static int[] takeOutNode(int[] arr, int index)
 {
@@ -11,7 +13,7 @@ class Disk{
 if (arr == null || index < 0 || index >= arr.length) {
 return arr;
 }
-  
+
 
 int[] ArrayTwo = new int[arr.length - 1];
   
@@ -29,20 +31,20 @@ ArrayTwo[k++] = arr[i];
 
 return ArrayTwo;
 }
-//FCFS GOES HERE
+//FCFS GOES HERE - Ed
   
-// SSTF GOES HERE
+// SSTF GOES HERE - Chris & Ramish
    
- // INSERT SCAN  HERE
+// INSERT SCAN HERE - Brian
  
 
    
-   //MAIN METHOD
+ //MAIN METHOD
    public static void main(String[] args) {
        int[] arr=new int[1000];
        Random rand = new Random();
        for (int i=0;i<arr.length;i++) {
-           arr[i]=rand.nextInt(5000);
+           arr[i] = rand.nextInt(5000);
        }
        int firstNum=arr[0];
 
