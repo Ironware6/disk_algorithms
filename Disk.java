@@ -42,6 +42,63 @@ return ArrayTwo;
   
 // SSTF GOES HERE - Chris & Ramish
    
+	public int SSTF(int[] passedArr, int capacity, int firstNum){
+	       int[] holder_arr=new int[capacity]; 
+	       for (int i=0;i<capacity ;i++ ) { 
+	           holder_arr[i]=passedArr[i];
+	       }
+	       int total_num_moves=0;
+	       int totalNumScaned=0;
+	       Arrays.sort(holder_arr); 
+	       int index=0;
+	       for (int i=0;i<capacity ;i++ ) {
+	           if (holder_arr[i]==firstNum) {
+	               index=i;
+	               break;
+	           }
+	       }
+
+
+	       while (totalNumScaned<capacity) {
+	           if (index>0 && index<capacity-totalNumScaned-1) {
+	               int leftDifference=Math.abs(holder_arr[index]-holder_arr[index-1]);
+	               int rightDifference=Math.abs(holder_arr[index]-holder_arr[index+1]);
+
+	             
+	               if (leftDifference<rightDifference) { 
+	                   totalNumScaned++;
+	                   total_num_moves+=Math.abs(holder_arr[index]-holder_arr[index-1]);
+	                   holder_arr=removeTheElement(holder_arr, index);
+	                   index--;
+	               }
+	               else { 
+	                   totalNumScaned++;
+	                   total_num_moves+=Math.abs(holder_arr[index]-holder_arr[index+1]);
+	                   holder_arr=removeTheElement(holder_arr ,index);
+	               }
+	           }
+	           else if(index>0 && index<=capacity-totalNumScaned-1){
+	               totalNumScaned++;
+	               total_num_moves+=Math.abs(holder_arr[index]-holder_arr[index-1]);
+	               holder_arr=removeTheElement(holder_arr ,index);
+	               index--;
+	           }
+	           else if(index>=0 && index<capacity-totalNumScaned-1){
+	               totalNumScaned++;
+	               total_num_moves+=Math.abs(holder_arr[index]-holder_arr[index+1]);
+	               holder_arr=removeTheElement(holder_arr ,index);
+	           }
+	           if (totalNumScaned==capacity-1) {
+	               removeTheElement(holder_arr, index);
+	               totalNumScaned++;
+	           }
+	       }
+	       return totalmoves;
+
+	   }
+   
+   
+   
 // INSERT SCAN HERE - Brian
 int SCAN(int[] arr, int size, int firstNum){
     int totalmoves = 0;
