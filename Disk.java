@@ -43,7 +43,27 @@ return ArrayTwo;
 // SSTF GOES HERE - Chris & Ramish
    
 // INSERT SCAN HERE - Brian
- 
+int SCAN(int[] arr, int size, int firstNum){
+    int totalmoves = 0;
+    Arrays.sort(arr);
+    int index = 0;
+
+    for (int i = 0; i<size ;i++ ) {
+        if (arr[i]==firstNum) {
+            index=i;
+            break;
+        }
+    }
+
+    if (index==0 || index==size-1) {
+        return arr[size-1]-arr[0];
+    }
+
+    totalmoves+=arr[size-1]-arr[index];
+    totalmoves+=arr[size-1]-arr[0];
+    totalmoves+=arr[index-1]-arr[0];
+    return totalmoves;
+}
 
    
  //MAIN METHOD
