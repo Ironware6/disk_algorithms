@@ -32,6 +32,13 @@ ArrayTwo[k++] = arr[i];
 return ArrayTwo;
 }
 //FCFS GOES HERE - Ed
+   int FCFS(int[] arr, int size){
+       int totalmoves=0;
+       for (int i=0;i<size-1;i++){
+           totalmoves+=Math.abs(arr[i]-arr[i+1]);
+       }
+       return totalmoves;
+   }
   
 // SSTF GOES HERE - Chris & Ramish
    
